@@ -7,7 +7,7 @@ export const postReducer = (posts = [] , action) => {
             return action.payload;
 
         case 'CREATE':
-            return posts;
+            return [...postReducer, action.payload];
 
         default:
             return posts;
