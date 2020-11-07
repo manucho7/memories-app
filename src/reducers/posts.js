@@ -11,6 +11,9 @@ export const postReducer = (posts = [] , action) => {
         case 'CREATE':
             return [...postReducer, action.payload];
 
+        case 'DELETE':
+            //keep all posts except that post whose id matches the action.payload
+            return posts.filter((post) => post._id !== action.payload ); 
 
         default:
             return posts;
