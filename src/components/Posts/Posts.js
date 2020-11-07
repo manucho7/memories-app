@@ -15,7 +15,8 @@ const Posts = ({setCurrentId}) => {
         !posts.length ? <CircularProgress /> : (
             <Grid 
                 className={classes.container} 
-                container alignItems="stretch" 
+                container 
+                alignItems="stretch" 
                 spacing={3}
             >
                 {
