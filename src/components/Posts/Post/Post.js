@@ -7,7 +7,7 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
 import useStyles from './styles';
-import { deletePost } from '../../../actions/posts';
+import { deletePost, likePost } from '../../../actions/posts';
 
 const Post = ({ post, setCurrentId }) => {
     const dispatch = useDispatch();
@@ -17,10 +17,10 @@ const Post = ({ post, setCurrentId }) => {
     return (
         <Card className={classes.card}>
             <CardMedia 
-            className={classes.media} 
-            image={post.selectedFile}
-            title={post.title}
-        />
+                className={classes.media} 
+                image={post.selectedFile}
+                title={post.title}
+            />
             <div className={classes.overlay}>
                 <Typography variant="h6">{post.creator}</Typography>
                 <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
@@ -47,7 +47,7 @@ const Post = ({ post, setCurrentId }) => {
             </CardContent>
             
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" onClick={()=>{}}>
+                <Button size="small" color="primary" onClick={()=> dispatch(likePost(post._id))}>
                     <ThumbUpAltIcon fontSize="small"/>  
                     Like
                     {post.likeCount}
