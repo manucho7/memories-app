@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //API url pointing to our backend route
-const url = 'http://localhost:5000/posts';
+const url = 'https://memory-application.herokuapp.com/posts';
 
 export const fetchPosts = () => axios.get(url);
 
